@@ -1,0 +1,48 @@
+html {
+  background: white;
+  color: black;
+  font-size: 1em;
+}
+
+article {
+	
+}
+
+header {
+	margin: 0 auto;
+	background: red;
+	height: 60px;
+	text-align: center;
+	width: 130px;
+}
+
+section {
+	margin: 0	 2em;
+}
+
+.apodo-thumb {
+	height: 130px;
+	width: 130px;
+}
+
+.form-thumb {
+	height: 180px;
+	width: 180px;
+}
+
+.horizontal {
+	display: inline-block;
+}
+
+.notice {
+	color: green;
+}
+
+.table th, .table .centered{
+	text-align: left;
+}
+
+.text-area {
+	height: 100px;
+	width: 500px;
+}

@@ -1,0 +1,29 @@
+<h1>Listing cuerpos</h1>
+
+<table>
+  <tr>
+    <th>Descripcion</th>
+    <th>Imagen url</th>
+    <th>Fecha creacion</th>
+    <th>Fecha actualizacion</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @cuerpos.each do |cuerpo| %>
+  <tr>
+    <td><%= cuerpo.descripcion %></td>
+    <td><%= cuerpo.imagen_url %></td>
+    <td><%= cuerpo.fecha_creacion %></td>
+    <td><%= cuerpo.fecha_actualizacion %></td>
+    <td><%= link_to 'Show', cuerpo %></td>
+    <td><%= link_to 'Edit', edit_cuerpo_path(cuerpo) %></td>
+    <td><%= link_to 'Destroy', cuerpo, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Cuerpo', new_cuerpo_path %>

@@ -1,0 +1,37 @@
+<%= form_for(@compartido) do |f| %>
+  <% if @compartido.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@compartido.errors.count, "error") %> prohibited this compartido from being saved:</h2>
+
+      <ul>
+      <% @compartido.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :usuario_id %><br />
+    <%= f.text_field :usuario_id %>
+  </div>
+  <div class="field">
+    <%= f.label :apodo_id %><br />
+    <%= f.number_field :apodo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :origen %><br />
+    <%= f.text_field :origen %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_creacion %><br />
+    <%= f.datetime_select :fecha_creacion %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_actualizacion %><br />
+    <%= f.datetime_select :fecha_actualizacion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,33 @@
+<h1>Listing reportes</h1>
+
+<table>
+  <tr>
+    <th>Usuario</th>
+    <th>Apodo</th>
+    <th>Fecha</th>
+    <th>Razon</th>
+    <th>Fecha creacion</th>
+    <th>Fecha actualizacion</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @reportes.each do |reportes| %>
+  <tr>
+    <td><%= reportes.usuario_id %></td>
+    <td><%= reportes.apodo_id %></td>
+    <td><%= reportes.fecha %></td>
+    <td><%= reportes.razon %></td>
+    <td><%= reportes.fecha_creacion %></td>
+    <td><%= reportes.fecha_actualizacion %></td>
+    <td><%= link_to 'Show', reportes %></td>
+    <td><%= link_to 'Edit', edit_reportes_path(reportes) %></td>
+    <td><%= link_to 'Destroy', reportes, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Reportes', new_reportes_path %>

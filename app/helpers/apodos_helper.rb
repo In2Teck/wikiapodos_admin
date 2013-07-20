@@ -1,0 +1,2 @@
+module ApodosHelper
+end

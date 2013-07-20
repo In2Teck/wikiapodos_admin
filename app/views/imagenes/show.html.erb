@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Cuerpo:</b>
+  <%= @imagen.cuerpo_id %>
+</p>
+
+<p>
+  <b>Objeto:</b>
+  <%= @imagen.objeto_id %>
+</p>
+
+<p>
+  <b>Imagen url:</b>
+  <%= @imagen.imagen_url %>
+</p>
+
+<p>
+  <b>Fecha creacion:</b>
+  <%= @imagen.fecha_creacion %>
+</p>
+
+<p>
+  <b>Fecha actualizacion:</b>
+  <%= @imagen.fecha_actualizacion %>
+</p>
+
+
+<%= link_to 'Edit', edit_imagen_path(@imagen) %> |
+<%= link_to 'Back', imagenes_path %>

@@ -1,0 +1,31 @@
+<h1>Listing compartidos</h1>
+
+<table>
+  <tr>
+    <th>Usuario</th>
+    <th>Apodo</th>
+    <th>Origen</th>
+    <th>Fecha creacion</th>
+    <th>Fecha actualizacion</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @compartidos.each do |compartido| %>
+  <tr>
+    <td><%= compartido.usuario_id %></td>
+    <td><%= compartido.apodo_id %></td>
+    <td><%= compartido.origen %></td>
+    <td><%= compartido.fecha_creacion %></td>
+    <td><%= compartido.fecha_actualizacion %></td>
+    <td><%= link_to 'Show', compartido %></td>
+    <td><%= link_to 'Edit', edit_compartido_path(compartido) %></td>
+    <td><%= link_to 'Destroy', compartido, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Compartido', new_compartido_path %>

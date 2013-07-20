@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Facebook:</b>
+  <%= @usuario.facebook_id %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @usuario.nombre %>
+</p>
+
+<p>
+  <b>Apellido:</b>
+  <%= @usuario.apellido %>
+</p>
+
+<p>
+  <b>Email:</b>
+  <%= @usuario.email %>
+</p>
+
+<p>
+  <b>Es fan:</b>
+  <%= @usuario.es_fan %>
+</p>
+
+<p>
+  <b>Fecha creacion:</b>
+  <%= @usuario.fecha_creacion %>
+</p>
+
+<p>
+  <b>Fecha actualizacion:</b>
+  <%= @usuario.fecha_actualizacion %>
+</p>
+
+
+<%= link_to 'Edit', edit_usuario_path(@usuario) %> |
+<%= link_to 'Back', usuarios_path %>

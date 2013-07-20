@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Usuario:</b>
+  <%= @reportes.usuario_id %>
+</p>
+
+<p>
+  <b>Apodo:</b>
+  <%= @reportes.apodo_id %>
+</p>
+
+<p>
+  <b>Fecha:</b>
+  <%= @reportes.fecha %>
+</p>
+
+<p>
+  <b>Razon:</b>
+  <%= @reportes.razon %>
+</p>
+
+<p>
+  <b>Fecha creacion:</b>
+  <%= @reportes.fecha_creacion %>
+</p>
+
+<p>
+  <b>Fecha actualizacion:</b>
+  <%= @reportes.fecha_actualizacion %>
+</p>
+
+
+<%= link_to 'Edit', edit_reportes_path(@reportes) %> |
+<%= link_to 'Back', reportes_index_path %>

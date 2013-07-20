@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  facebook_id: MyString
+  nombre: MyString
+  apellido: MyString
+  email: MyString
+  es_fan: MyString
+  fecha_creacion: 2013-07-12 17:32:00
+  fecha_actualizacion: 2013-07-12 17:32:00
+
+two:
+  facebook_id: MyString
+  nombre: MyString
+  apellido: MyString
+  email: MyString
+  es_fan: MyString
+  fecha_creacion: 2013-07-12 17:32:00
+  fecha_actualizacion: 2013-07-12 17:32:00

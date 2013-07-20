@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  categoria_id: 1
+  descripcion: MyString
+  imagen_url: MyString
+  fecha_creacion: 2013-07-12 17:32:22
+  fecha_actualizacion: 2013-07-12 17:32:22
+
+two:
+  categoria_id: 1
+  descripcion: MyString
+  imagen_url: MyString
+  fecha_creacion: 2013-07-12 17:32:22
+  fecha_actualizacion: 2013-07-12 17:32:22

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Usuario:</b>
+  <%= @compartido.usuario_id %>
+</p>
+
+<p>
+  <b>Apodo:</b>
+  <%= @compartido.apodo_id %>
+</p>
+
+<p>
+  <b>Origen:</b>
+  <%= @compartido.origen %>
+</p>
+
+<p>
+  <b>Fecha creacion:</b>
+  <%= @compartido.fecha_creacion %>
+</p>
+
+<p>
+  <b>Fecha actualizacion:</b>
+  <%= @compartido.fecha_actualizacion %>
+</p>
+
+
+<%= link_to 'Edit', edit_compartido_path(@compartido) %> |
+<%= link_to 'Back', compartidos_path %>

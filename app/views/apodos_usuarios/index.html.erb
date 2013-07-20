@@ -1,0 +1,35 @@
+<h1>Listing apodos_usuarios</h1>
+
+<table>
+  <tr>
+    <th>Usuario desde</th>
+    <th>Usuario para</th>
+    <th>Apodo</th>
+    <th>Status</th>
+    <th>Visible</th>
+    <th>Fecha creacion</th>
+    <th>Fecha actualizacion</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @apodos_usuarios.each do |apodos_usuario| %>
+  <tr>
+    <td><%= apodos_usuario.usuario_desde_id %></td>
+    <td><%= apodos_usuario.usuario_para_id %></td>
+    <td><%= apodos_usuario.apodo_id %></td>
+    <td><%= apodos_usuario.status %></td>
+    <td><%= apodos_usuario.visible %></td>
+    <td><%= apodos_usuario.fecha_creacion %></td>
+    <td><%= apodos_usuario.fecha_actualizacion %></td>
+    <td><%= link_to 'Show', apodos_usuario %></td>
+    <td><%= link_to 'Edit', edit_apodos_usuario_path(apodos_usuario) %></td>
+    <td><%= link_to 'Destroy', apodos_usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Apodos usuario', new_apodos_usuario_path %>

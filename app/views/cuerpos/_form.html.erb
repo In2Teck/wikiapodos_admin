@@ -1,0 +1,33 @@
+<%= form_for(@cuerpo) do |f| %>
+  <% if @cuerpo.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cuerpo.errors.count, "error") %> prohibited this cuerpo from being saved:</h2>
+
+      <ul>
+      <% @cuerpo.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_field :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :imagen_url %><br />
+    <%= f.text_field :imagen_url %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_creacion %><br />
+    <%= f.datetime_select :fecha_creacion %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_actualizacion %><br />
+    <%= f.datetime_select :fecha_actualizacion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

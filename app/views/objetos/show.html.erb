@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Categoria:</b>
+  <%= @objeto.categoria_id %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @objeto.descripcion %>
+</p>
+
+<p>
+  <b>Imagen url:</b>
+  <%= @objeto.imagen_url %>
+</p>
+
+<p>
+  <b>Fecha creacion:</b>
+  <%= @objeto.fecha_creacion %>
+</p>
+
+<p>
+  <b>Fecha actualizacion:</b>
+  <%= @objeto.fecha_actualizacion %>
+</p>
+
+
+<%= link_to 'Edit', edit_objeto_path(@objeto) %> |
+<%= link_to 'Back', objetos_path %>

@@ -1,0 +1,37 @@
+<%= form_for(@objeto) do |f| %>
+  <% if @objeto.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@objeto.errors.count, "error") %> prohibited this objeto from being saved:</h2>
+
+      <ul>
+      <% @objeto.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :categoria_id %><br />
+    <%= f.number_field :categoria_id %>
+  </div>
+  <div class="field">
+    <%= f.label :descripcion %><br />
+    <%= f.text_field :descripcion %>
+  </div>
+  <div class="field">
+    <%= f.label :imagen_url %><br />
+    <%= f.text_field :imagen_url %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_creacion %><br />
+    <%= f.datetime_select :fecha_creacion %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_actualizacion %><br />
+    <%= f.datetime_select :fecha_actualizacion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

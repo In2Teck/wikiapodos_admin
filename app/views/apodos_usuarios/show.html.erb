@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Usuario desde:</b>
+  <%= @apodos_usuario.usuario_desde_id %>
+</p>
+
+<p>
+  <b>Usuario para:</b>
+  <%= @apodos_usuario.usuario_para_id %>
+</p>
+
+<p>
+  <b>Apodo:</b>
+  <%= @apodos_usuario.apodo_id %>
+</p>
+
+<p>
+  <b>Status:</b>
+  <%= @apodos_usuario.status %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <%= @apodos_usuario.visible %>
+</p>
+
+<p>
+  <b>Fecha creacion:</b>
+  <%= @apodos_usuario.fecha_creacion %>
+</p>
+
+<p>
+  <b>Fecha actualizacion:</b>
+  <%= @apodos_usuario.fecha_actualizacion %>
+</p>
+
+
+<%= link_to 'Edit', edit_apodos_usuario_path(@apodos_usuario) %> |
+<%= link_to 'Back', apodos_usuarios_path %>

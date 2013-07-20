@@ -1,0 +1,55 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Autor:</b>
+  <%= @apodo.autor_id %>
+</p>
+
+<p>
+  <b>Nombre:</b>
+  <%= @apodo.nombre %>
+</p>
+
+<p>
+  <b>Prefijo:</b>
+  <%= @apodo.prefijo %>
+</p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @apodo.descripcion %>
+</p>
+
+<p>
+  <b>Imagen url:</b>
+  <%= @apodo.imagen_url %>
+</p>
+
+<p>
+  <b>Calificacion:</b>
+  <%= @apodo.calificacion %>
+</p>
+
+<p>
+  <b>Visible:</b>
+  <%= @apodo.visible %>
+</p>
+
+<p>
+  <b>Destacado:</b>
+  <%= @apodo.destacado %>
+</p>
+
+<p>
+  <b>Fecha creacion:</b>
+  <%= @apodo.fecha_creacion %>
+</p>
+
+<p>
+  <b>Fecha actualizacion:</b>
+  <%= @apodo.fecha_actualizacion %>
+</p>
+
+
+<%= link_to 'Edit', edit_apodo_path(@apodo) %> |
+<%= link_to 'Back', apodos_path %>

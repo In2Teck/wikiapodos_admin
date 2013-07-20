@@ -1,0 +1,45 @@
+<%= form_for(@apodos_usuario) do |f| %>
+  <% if @apodos_usuario.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@apodos_usuario.errors.count, "error") %> prohibited this apodos_usuario from being saved:</h2>
+
+      <ul>
+      <% @apodos_usuario.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :usuario_desde_id %><br />
+    <%= f.text_field :usuario_desde_id %>
+  </div>
+  <div class="field">
+    <%= f.label :usuario_para_id %><br />
+    <%= f.text_field :usuario_para_id %>
+  </div>
+  <div class="field">
+    <%= f.label :apodo_id %><br />
+    <%= f.number_field :apodo_id %>
+  </div>
+  <div class="field">
+    <%= f.label :status %><br />
+    <%= f.text_field :status %>
+  </div>
+  <div class="field">
+    <%= f.label :visible %><br />
+    <%= f.check_box :visible %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_creacion %><br />
+    <%= f.datetime_select :fecha_creacion %>
+  </div>
+  <div class="field">
+    <%= f.label :fecha_actualizacion %><br />
+    <%= f.datetime_select :fecha_actualizacion %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  usuario_desde_id: MyString
+  usuario_para_id: MyString
+  apodo_id: 1
+  status: MyString
+  visible: false
+  fecha_creacion: 2013-07-12 17:31:43
+  fecha_actualizacion: 2013-07-12 17:31:43
+
+two:
+  usuario_desde_id: MyString
+  usuario_para_id: MyString
+  apodo_id: 1
+  status: MyString
+  visible: false
+  fecha_creacion: 2013-07-12 17:31:43
+  fecha_actualizacion: 2013-07-12 17:31:43

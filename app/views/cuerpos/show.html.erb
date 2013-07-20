@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Descripcion:</b>
+  <%= @cuerpo.descripcion %>
+</p>
+
+<p>
+  <b>Imagen url:</b>
+  <%= @cuerpo.imagen_url %>
+</p>
+
+<p>
+  <b>Fecha creacion:</b>
+  <%= @cuerpo.fecha_creacion %>
+</p>
+
+<p>
+  <b>Fecha actualizacion:</b>
+  <%= @cuerpo.fecha_actualizacion %>
+</p>
+
+
+<%= link_to 'Edit', edit_cuerpo_path(@cuerpo) %> |
+<%= link_to 'Back', cuerpos_path %>

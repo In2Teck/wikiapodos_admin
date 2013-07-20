@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="utf-8" />
+  <title>Wikiapodos Administrador</title>
+  <%= stylesheet_link_tag    "application", "display", :media => "all"%>
+  <%= javascript_include_tag "application" %>
+  <%= yield :head_script %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<header><h1>Wikiapodos</h1></header>
+
+<%= yield %>
+
+</body>
+</html>

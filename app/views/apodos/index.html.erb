@@ -1,0 +1,51 @@
+<% content_for :head_script do %>
+  <%= javascript_include_tag "apodos" %>
+<% end %>
+
+<section>
+    <h1>Reporte de Apodos</h1>
+    <table class="table table-striped table-bordered responsive">
+      <tr>
+        <th>Imagen</th>
+        <th>Apodo</th>
+        <th>Descripción</th>
+        <th>Autor</th>
+        <th>Calificación</th>
+        <th>Usuarios</th>
+        <th>Compartido</th>
+        <th>Visible</th>
+        <th>Destacado</th>
+        <th>Fecha</th>
+        <th></th>
+      </tr>
+
+    <% @apodos.each do |apodo| %>
+      <tr>
+        <td><%= image_tag "http://apps.t2omedia.com.mx/php1/wikiapodos/images/apodos/" + apodo.imagen_url, :class => "apodo-thumb" %></td>
+        <td class="centered"><%= apodo.prefijo + ' ' + apodo.nombre %></td>
+        <td class="justificado"><%= apodo.descripcion %></td>
+        <td class="centered"><%= link_to apodo.usuario.nombre + ' ' + apodo.usuario.apellido, "http://facebook.com/#{apodo.usuario.facebook_id}", :target => "_blank" %></td>
+        <td class="centered"><%= apodo.calificacion %></td>
+        <td class="centered"><%= apodo.apodos_usuarios.select{|apodo| apodo.status == '1'}.length %></td>
+        <td class="centered"><%= apodo.compartidos.length %></td>
+        <td class="centered">
+            <% if apodo.visible %>
+                <%=link_to"Ocultar", "#", :onclick => "updateVisible(#{apodo.id}, this)" %>
+            <% else %>
+                <%=link_to"Mostrar", "#", :onclick => "updateVisible(#{apodo.id}, this)" %>
+            <% end %>
+        </td>
+         <td class="centered">
+            <% if apodo.destacado %>
+                <%=link_to"Remover", "#", :onclick => "updateDestacado(#{apodo.id}, this)" %>
+            <% else %>
+                <%=link_to"Agregar", "#", :onclick => "updateDestacado(#{apodo.id}, this)" %>
+            <% end %>
+        </td>
+        <td class="centered"><%= apodo.fecha_creacion.in_time_zone("Mexico City").strftime("%h %d %Y") %></td>
+        <td><%= link_to (raw("<i class='icon-edit'></i>")), edit_apodo_path(apodo)%></td>
+        <!-- <%= link_to 'Destroy', apodo, method: :delete, data: { confirm: 'Are you sure?' } %> -->
+      </tr>
+    <% end %>
+    </table>
+</section>
