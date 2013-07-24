@@ -8,7 +8,7 @@
       <tr>
         <th><%= sortable "imagen_url", "Imagen" %></th>
         <th><%= sortable "nombre", "Apodo" %></th>
-        <th><%= sortable "descripcion" %></th>
+        <th><%= sortable "descripcion", "Descripción" %></th>
         <th><%= sortable "usuarios.nombre", "Autor" %></th>
         <th><%= sortable "calificacion", "Calificación" %></th>
         <th><%= sortable "aceptado", "Usuarios" %></th>
@@ -24,7 +24,7 @@
         <td><%= image_tag "http://apps.t2omedia.com.mx/php1/wikiapodos/images/apodos/" + apodo.imagen_url, :class => "apodo-thumb" %></td>
         <td class="centered"><%= apodo.prefijo + ' ' + apodo.nombre %></td>
         <td class="justificado"><%= apodo.descripcion %></td>
-        <td class="centered"><%= link_to apodo.usuario.nombre + ' ' + apodo.usuario.apellido, "http://facebook.com/#{apodo.usuario.facebook_id}", :target => "_blank" %></td>
+        <td class="centered"><%= link_to apodo.attributes["nombre"] + ' ' + apodo.attributes["apellido"], "http://facebook.com/#{apodo.attributes["facebook_id"]}", :target => "_blank" %></td>
         <td class="centered"><%= apodo.calificacion %></td>
         <td class="centered"><%= apodo.aceptado.to_i %></td>
         <td class="centered"><%= apodo.compartido %></td>

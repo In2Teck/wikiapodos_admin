@@ -2,7 +2,7 @@
   # GET /apodos
   # GET /apodos.json
   def index
-    @apodos = Apodo.find_by_sql("SELECT apodos.*, sum(apodos_usuarios.status = 1) as 'aceptado', count(DISTINCT compartidos.apodo_id) as 'compartido' from apodos LEFT OUTER JOIN usuarios on usuarios.facebook_id = apodos.autor_id LEFT OUTER JOIN apodos_usuarios on apodos_usuarios.apodo_id = apodos.id LEFT OUTER JOIN compartidos on compartidos.apodo_id = apodos.id GROUP BY apodos.id ORDER BY #{sort_column} #{sort_direction}").paginate(:page => params[:page])
+    @apodos = Apodo.find_by_sql("SELECT apodos.*, usuarios.nombre, usuarios.apellido, usuarios.facebook_id, sum(apodos_usuarios.status = 1) as 'aceptado', count(DISTINCT compartidos.apodo_id) as 'compartido' from apodos LEFT OUTER JOIN usuarios on usuarios.facebook_id = apodos.autor_id LEFT OUTER JOIN apodos_usuarios on apodos_usuarios.apodo_id = apodos.id LEFT OUTER JOIN compartidos on compartidos.apodo_id = apodos.id GROUP BY apodos.id ORDER BY #{sort_column} #{sort_direction}").paginate(:page => params[:page])
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @apodos }

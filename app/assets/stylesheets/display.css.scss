@@ -46,3 +46,16 @@ section {
 	height: 100px;
 	width: 500px;
 }
+
+th .current {  
+  padding-right: 18px;  
+  background-repeat: no-repeat;  
+  background-position: right center;  
+}  
+th .ASC {   
+  background-image: url("up_arrow.gif");
+}  
+  
+th .DESC {   
+  background-image: url("down_arrow.gif");
+}
