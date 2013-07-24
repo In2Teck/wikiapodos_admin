@@ -10,4 +10,20 @@
 // WARNING: THE FIRST BLANK LINE MARKS THE END OF WHAT'S TO BE PROCESSED, ANY BLANK LINE SHOULD
 // GO AFTER THE REQUIRES BELOW.
 //
-//= require_tree
+//= require dropdown
+//= require jpanel
+//= require jquery-ck
+//= require jquery.avgrund
+//= require jquery.dropkick-1.0.0
+//= require jquery.icheck
+//= require jquery.tagsinput
+//= require jquery.toolbar
+//= require legacy.js
+// OMITTED manifest.js
+//= require picker.date
+//= require picker.js
+//= require picker.time
+//= require rainbow-custom.min
+//= require responsive-tables
+//= require responsiveslides
+//= require tooltip

@@ -1,21 +1,21 @@
 <% content_for :head_script do %>
   <%= javascript_include_tag "apodos" %>
 <% end %>
-
 <section>
     <h1>Reporte de Apodos</h1>
+    <%= will_paginate @apodos, :previous_label => ApplicationHelper::PREV_LBL, :next_label => ApplicationHelper::NEXT_LBL %>
     <table class="table table-striped table-bordered responsive">
       <tr>
-        <th>Imagen</th>
-        <th>Apodo</th>
-        <th>Descripción</th>
-        <th>Autor</th>
-        <th>Calificación</th>
-        <th>Usuarios</th>
-        <th>Compartido</th>
-        <th>Visible</th>
-        <th>Destacado</th>
-        <th>Fecha</th>
+        <th><%= sortable "imagen_url", "Imagen" %></th>
+        <th><%= sortable "nombre", "Apodo" %></th>
+        <th><%= sortable "descripcion" %></th>
+        <th><%= sortable "usuarios.nombre", "Autor" %></th>
+        <th><%= sortable "calificacion", "Calificación" %></th>
+        <th><%= sortable "aceptado", "Usuarios" %></th>
+        <th><%= sortable "compartido", "Compartido" %></th>
+        <th><%= sortable "visible" %></th>
+        <th><%= sortable "destacado" %></th>
+        <th><%= sortable "fecha_actualizacion", "Fecha" %></th>
         <th></th>
       </tr>
 
@@ -26,8 +26,8 @@
         <td class="justificado"><%= apodo.descripcion %></td>
         <td class="centered"><%= link_to apodo.usuario.nombre + ' ' + apodo.usuario.apellido, "http://facebook.com/#{apodo.usuario.facebook_id}", :target => "_blank" %></td>
         <td class="centered"><%= apodo.calificacion %></td>
-        <td class="centered"><%= apodo.apodos_usuarios.select{|apodo| apodo.status == '1'}.length %></td>
-        <td class="centered"><%= apodo.compartidos.length %></td>
+        <td class="centered"><%= apodo.aceptado.to_i %></td>
+        <td class="centered"><%= apodo.compartido %></td>
         <td class="centered">
             <% if apodo.visible %>
                 <%=link_to"Ocultar", "#", :onclick => "updateVisible(#{apodo.id}, this)" %>
