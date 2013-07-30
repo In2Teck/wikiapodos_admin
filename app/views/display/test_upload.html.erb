@@ -1,0 +1,10 @@
+<section>
+	<h2>File Upload</h2>
+  <article>
+    <%= form_tag 'test_upload_send', :multipart => true do %>
+      <%= file_field_tag "imagen" %>
+      <br /> <br />
+      <%= submit_tag "Save" %>  
+    <% end %>
+  </article>
+</section>

@@ -31,6 +31,9 @@ Wikiapodos::Application.routes.draw do
     match 'updateDestacado'
   end 
 
+  match 'test_upload' => 'display#test_upload'
+  
+  match 'test_upload_send' => 'display#test_upload_send'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
