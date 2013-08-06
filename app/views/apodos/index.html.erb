@@ -6,7 +6,6 @@
     <%= will_paginate @apodos, :previous_label => ApplicationHelper::PREV_LBL, :next_label => ApplicationHelper::NEXT_LBL %>
     <table class="table table-striped table-bordered responsive">
       <tr>
-        <th><%= sortable "imagen_url", "Imagen" %></th>
         <th><%= sortable "nombre", "Apodo" %></th>
         <th><%= sortable "descripcion", "Descripción" %></th>
         <th><%= sortable "nombre_usuario", "Autor" %></th>
@@ -21,8 +20,10 @@
 
     <% @apodos.each do |apodo| %>
       <tr>
-        <td><%= image_tag "http://apps.t2omedia.com.mx/php1/wikiapodos/images/apodos/" + apodo.imagen_url, :class => "apodo-thumb" %></td>
-        <td class="centered"><%= apodo.prefijo + ' ' + apodo.nombre %></td>
+        <td class="centered">
+            <%= image_tag "http://apps.t2omedia.com.mx/php1/wikiapodos/images/apodos/" + apodo.imagen_url, :class => "apodo-thumb" %>
+            <%= apodo.prefijo + ' ' + apodo.nombre %>
+        </td>
         <td class="justificado"><%= apodo.descripcion %></td>
         <td class="centered"><%= link_to apodo.attributes["nombre_usuario"] + ' ' + apodo.attributes["apellido"], "http://facebook.com/#{apodo.attributes["facebook_id"]}", :target => "_blank" %></td>
         <td class="centered"><%= apodo.calificacion %></td>
@@ -44,7 +45,6 @@
         </td>
         <td class="centered"><%= apodo.fecha_creacion.in_time_zone("Mexico City").strftime("%h %d %Y") %></td>
         <td><%= link_to (raw("<i class='icon-edit'></i>")), edit_apodo_path(apodo)%></td>
-        <!-- <%= link_to 'Destroy', apodo, method: :delete, data: { confirm: 'Are you sure?' } %> -->
       </tr>
     <% end %>
     </table>

@@ -80,4 +80,16 @@ class ApodosUsuariosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def cancel
+    @apodos_usuario = ApodosUsuario.find(params[:apodos_usuario_id])
+
+    respond_to do |format|
+      @apodos_usuario.update_attribute(:status, 3)
+        format.json { render json: @apodos_usuario }
+      else
+        format.json { render json: {:error => "error"}}
+      end
+    end
+  end
 end

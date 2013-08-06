@@ -16,10 +16,11 @@
 //= require jquery.avgrund
 //= require jquery.dropkick-1.0.0
 //= require jquery.icheck
+//= require jquery.simplemodal-1.4.4
 //= require jquery.tagsinput
 //= require jquery.toolbar
 //= require legacy.js
-// OMITTED manifest.js
+//= require manifest.js
 //= require picker.date
 //= require picker.js
 //= require picker.time

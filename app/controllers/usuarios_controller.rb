@@ -2,7 +2,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios
   # GET /usuarios.json
   def index
-    @usuarios = Usuario.all
+    @usuarios = Usuario.includes(:apodos, :apodos_desde, :apodos_para)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,4 +80,19 @@ class UsuariosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def get_apodos_creados
+    @apodos = Apodo.where("autor_id = ?", params[:usuario_id])
+     respond_to do |format|
+      format.json { render json: @apodos }
+    end
+  end
+
+  def get_apodos_asignados
+    @apodos = ApodosUsuario.where("usuario_para_id = ? and status = 1", params[:usuario_id]).includes(:apodo)
+     respond_to do |format|
+      format.json { render json: @apodos, :include => :apodo }
+    end
+  end
+
 end

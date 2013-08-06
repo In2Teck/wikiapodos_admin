@@ -79,7 +79,7 @@
     end
   end
 
-  def updateVisible
+  def update_visible
     @apodo = Apodo.find(params[:apodo_id])
 
     respond_to do |format|
@@ -91,7 +91,7 @@
     end
   end
 
-  def updateDestacado
+  def update_destacado
     @apodo = Apodo.find(params[:apodo_id])
 
     respond_to do |format|
@@ -100,6 +100,14 @@
       else
         format.json { render json: {:error => "error"}}
       end
+    end
+  end
+
+   def get_usuarios
+     @usuarios = ApodosUsuario.where("apodo_id = ? and status = 1", params[:apodo_id]).includes(:usuario_para)
+
+    respond_to do |format|
+      format.json { render json: @usuarios }
     end
   end
 

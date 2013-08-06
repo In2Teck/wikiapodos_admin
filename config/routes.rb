@@ -14,7 +14,10 @@ Wikiapodos::Application.routes.draw do
   resources :compartidos
 
 
-  resources :usuarios
+  resources :usuarios do
+    match 'get_apodos_creados'
+    match 'get_apodos_asignados'
+  end
 
 
   resources :categorias
@@ -27,8 +30,9 @@ Wikiapodos::Application.routes.draw do
 
 
   resources :apodos do
-    match 'updateVisible'
-    match 'updateDestacado'
+    match 'update_visible'
+    match 'update_destacado'
+    match 'get_usuarios'
   end 
 
   match 'test_upload' => 'display#test_upload'

@@ -1,35 +1,45 @@
-<h1>Listing usuarios</h1>
-
-<table>
-  <tr>
-    <th>Facebook</th>
-    <th>Nombre</th>
-    <th>Apellido</th>
-    <th>Email</th>
-    <th>Es fan</th>
-    <th>Fecha creacion</th>
-    <th>Fecha actualizacion</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @usuarios.each do |usuario| %>
-  <tr>
-    <td><%= usuario.facebook_id %></td>
-    <td><%= usuario.nombre %></td>
-    <td><%= usuario.apellido %></td>
-    <td><%= usuario.email %></td>
-    <td><%= usuario.es_fan %></td>
-    <td><%= usuario.fecha_creacion %></td>
-    <td><%= usuario.fecha_actualizacion %></td>
-    <td><%= link_to 'Show', usuario %></td>
-    <td><%= link_to 'Edit', edit_usuario_path(usuario) %></td>
-    <td><%= link_to 'Destroy', usuario, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
+<% content_for :head_script do %>
+  <%= javascript_include_tag "usuarios" %>
 <% end %>
-</table>
 
-<br />
+<section>
+    <h1>Reporte de Usuarios</h1>
+    <table class="table table-striped table-bordered responsive">
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Es fan</th>
+        <th>Apodos Creados</th>
+        <th>Apodos Recibidos</th>
+        <th>Amigos Apodados</th>
+      </tr>
 
-<%= link_to 'New Usuario', new_usuario_path %>
+    <% @usuarios.select{|user| user.facebook_id != '1'}.each do |usuario| %>
+      <tr>
+        <td class="centered">
+            <%= image_tag "https://graph.facebook.com/#{usuario.facebook_id}/picture", :class => "usuario-thumb horizontal" %>
+            <%= link_to usuario.nombre + ' ' + usuario.apellido, "http://facebook.com/#{usuario.facebook_id}", :target => "_blank", :class => "horizontal" %></td>
+        <td><%= usuario.email %></td>
+        <td><%= usuario.es_fan %></td>
+        <td><%= usuario.apodos.length %>&nbsp;&nbsp;&nbsp;
+            <% if usuario.apodos.length > 0 %>
+                <%=link_to"Ver", "#", :onclick => "getApodosCreados(#{usuario.facebook_id})"%>
+            <% end %>
+        </td>
+        <td><%= usuario.apodos_para.select{|apodo| apodo.status == '1'}.length %>&nbsp;&nbsp;&nbsp;
+            <% if usuario.apodos_para.select{|apodo| apodo.status == '1'}.length > 0 %>
+                <%=link_to"Ver", "#", :onclick => "getApodosAsignados(#{usuario.facebook_id})"%>
+            <% end %>
+        </td>
+        <td><%= usuario.apodos_desde.select{|apodo| apodo.status == '1'}.length %></td>
+      </tr>
+    <% end %>
+    </table>
+    
+    <div id="myModal" class="hide">
+        <h2>Apodos</h2>
+        <table id="apodosUsuario" class="table table-striped table-bordered responsive"></table>
+        </div>
+    </div>
+</section>
+<!-- , :onclick => "updateDestacado(#{apodo.id}, this)" -->

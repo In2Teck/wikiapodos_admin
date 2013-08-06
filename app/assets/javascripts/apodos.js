@@ -5,7 +5,7 @@ function updateVisible(apodo, html) {
       if (token) xhr.setRequestHeader('X-CSRF-Token', token);
     }, 
     type: "POST",
-    url: "/apodos/" + apodo + "/updateVisible",
+    url: "/apodos/" + apodo + "/update_visible",
     dataType: "json",
     success: function(data, textStatus, jqXHR) {
       var label;      
@@ -28,7 +28,7 @@ function updateDestacado(apodo, html) {
       if (token) xhr.setRequestHeader('X-CSRF-Token', token);
     }, 
     type: "POST",
-    url: "/apodos/" + apodo + "/updateDestacado",
+    url: "/apodos/" + apodo + "/update_destacado",
     dataType: "json",
     success: function(data, textStatus, jqXHR) {
       var label;
