@@ -4,14 +4,15 @@
 
 <section>
     <h1>Reporte de Usuarios</h1>
+    <%= will_paginate @usuarios, :previous_label => ApplicationHelper::PREV_LBL, :next_label => ApplicationHelper::NEXT_LBL %>
     <table class="table table-striped table-bordered responsive">
       <tr>
-        <th>Nombre</th>
-        <th>Email</th>
-        <th>Es fan</th>
-        <th>Apodos Creados</th>
-        <th>Apodos Recibidos</th>
-        <th>Amigos Apodados</th>
+        <th><%= sortable "nombre" %></th>
+        <th><%= sortable "email" %></th>
+        <th><%= sortable "es_fan"%></th>
+        <th><%= sortable "apodos_creados", "Apodos Creados"%></th>
+        <th><%= sortable "apodos_recibidos", "Apodos Recibidos"%></th>
+        <th><%= sortable "amigos_apodados", "Amigos Apodados"%></th>
       </tr>
 
     <% @usuarios.select{|user| user.facebook_id != '1'}.each do |usuario| %>
@@ -22,16 +23,16 @@
         <td><%= usuario.email %></td>
         <td><%= usuario.es_fan %></td>
         <td><%= usuario.apodos.length %>&nbsp;&nbsp;&nbsp;
-            <% if usuario.apodos.length > 0 %>
-                <%=link_to"Ver", "#", :onclick => "getApodosCreados(#{usuario.facebook_id})"%>
+            <% if usuario.attributes["apodos_creados"] > 0 %>
+                <%=link_to "Ver", "#", :onclick => "getApodosCreados(#{usuario.facebook_id})"%>
             <% end %>
         </td>
-        <td><%= usuario.apodos_para.select{|apodo| apodo.status == '1'}.length %>&nbsp;&nbsp;&nbsp;
-            <% if usuario.apodos_para.select{|apodo| apodo.status == '1'}.length > 0 %>
-                <%=link_to"Ver", "#", :onclick => "getApodosAsignados(#{usuario.facebook_id})"%>
+        <td><%= usuario.attributes["apodos_recibidos"] %>&nbsp;&nbsp;&nbsp;
+            <% if usuario.attributes["apodos_recibidos"] > 0 %>
+                <%=link_to "Ver", "#", :onclick => "getApodosAsignados(#{usuario.facebook_id})"%>
             <% end %>
         </td>
-        <td><%= usuario.apodos_desde.select{|apodo| apodo.status == '1'}.length %></td>
+        <td><%= usuario.attributes["amigos_apodados"] %></td>
       </tr>
     <% end %>
     </table>
