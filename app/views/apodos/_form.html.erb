@@ -14,7 +14,7 @@
   <div>
     <%= image_tag "http://apps.t2omedia.com.mx/php1/wikiapodos/images/apodos/" + @apodo.imagen_url, :class => "form-thumb" %>
     <br/>
-    <%= file_field_tag "imagen" %>
+    <%= f.file_field "imagen_url"%>
   </div>
   <br/>
   <div class="field">

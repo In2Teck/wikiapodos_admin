@@ -55,16 +55,10 @@
   # PUT /apodos/1.json
   def update
     @apodo = Apodo.find(params[:id])
-    imagen = params[:imagen]
+    imagen = params[:apodo][:imagen_url]
 
     if imagen
-      puts "entrando"
-      path = FtpUpload.upload_apodo imagen
-      puts "ya sali" + path
-      if path
-        puts "update"
-        params[:apodo].imagen_url = path
-      end
+      params[:apodo][:imagen_url] = FtpUpload.upload_apodo imagen
     end
 
     respond_to do |format|
