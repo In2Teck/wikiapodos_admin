@@ -10,8 +10,8 @@ class DisplayController < ApplicationController
 
   def test_upload_send
     imagen = params[:imagen]
-    FtpUpload.upload_apodo imagen
-    render :json => "Ok" 
+    result = FtpUpload.upload_apodo imagen
+    render :json => result
   end
 	
 end

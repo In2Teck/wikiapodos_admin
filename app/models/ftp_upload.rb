@@ -12,12 +12,18 @@ class FtpUpload
 
   def self.upload_file domain, username, password, path_on_server, file
 
-    ftp = Net::FTP.new(domain)
-    ftp.passive = true
-    ftp.login(username, password)
-    ftp.chdir(path_on_server)
-    ftp.storbinary("STOR " + file.original_filename, StringIO.new(file.read), Net::FTP::DEFAULT_BLOCKSIZE)
-    ftp.close
+    begin
+      filename = "#{Time.now.to_i}_#{file.original_filename}"
+      ftp = Net::FTP.new(domain)
+      ftp.passive = true
+      ftp.login(username, password)
+      ftp.chdir(path_on_server)
+      ftp.storbinary("STOR #{filename}", StringIO.new(file.read), Net::FTP::DEFAULT_BLOCKSIZE)
+      ftp.close
+      return filename
+    rescue
+      return nil
+    end
 
   end
 
