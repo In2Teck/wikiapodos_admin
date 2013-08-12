@@ -39,6 +39,8 @@ Wikiapodos::Application.routes.draw do
   
   match 'test_upload_send' => 'display#test_upload_send'
 
+  match 'incidencias' => 'apodos_usuarios#incidencias'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

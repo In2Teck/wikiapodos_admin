@@ -81,15 +81,13 @@ class ApodosUsuariosController < ApplicationController
     end
   end
 
-  def cancel
-    @apodos_usuario = ApodosUsuario.find(params[:apodos_usuario_id])
+  def incidencias
+    @apodos_usuarios = ApodosUsuario.where("status = 2").order("fecha_actualizacion DESC").includes(:apodo, :usuario_para)
 
     respond_to do |format|
-      @apodos_usuario.update_attribute(:status, 3)
-        format.json { render json: @apodos_usuario }
-      else
-        format.json { render json: {:error => "error"}}
-      end
+      format.html # index.html.erb
+      format.json { render json: @apodos_usuarios }
     end
   end
+
 end

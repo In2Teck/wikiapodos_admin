@@ -12,6 +12,7 @@
         <th><%= sortable "calificacion", "Calificación" %></th>
         <th><%= sortable "aceptado", "Usuarios" %></th>
         <th><%= sortable "compartido", "Compartido" %></th>
+        <th><%= sortable "reportado", "Reportado" %></th>
         <th><%= sortable "visible" %></th>
         <th><%= sortable "destacado" %></th>
         <th><%= sortable "fecha_actualizacion", "Fecha" %></th>
@@ -29,6 +30,7 @@
         <td class="centered"><%= apodo.calificacion %></td>
         <td class="centered"><%= apodo.aceptado.to_i %></td>
         <td class="centered"><%= apodo.compartido %></td>
+        <td class="centered"><%= apodo.reportado.to_i %></td>
         <td class="centered">
             <% if apodo.visible %>
                 <%=link_to"Ocultar", "#", :onclick => "updateVisible(#{apodo.id}, this)" %>
