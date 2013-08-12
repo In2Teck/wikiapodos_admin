@@ -1,8 +1,8 @@
 var selectedApodos = [];
 
-$(document).on("ready", function(event){
+$(document).on("ready", function(){
+  $("#usuarios-li").addClass("active")
 });
-
 
 function getApodosCreados(usuarioId) {
 	$.ajax({

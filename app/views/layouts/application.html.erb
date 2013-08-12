@@ -9,8 +9,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<header><h1>Wikiapodos</h1></header>
-
+	<header><h1>Herramienta de administración: Wikiapodos</h1></header>
+	<div class="navbar">
+  	<div class="navbar-inner">
+    	<div class="container">
+      	<a href="#menu" class="menu-trigger meteocon" data-meteocon="M"></a>
+        <div class="nav-collapse collapse">
+        	<nav id="menu">
+          	<ul class="nav">
+              <li id="resumen-li"><%= link_to "Resumen", "/", :class => "brand" %></li>
+              <li id="apodos-li"><%= link_to "Apodos", apodos_path, :class => "brand" %></li>
+              <li id="usuarios-li"><%= link_to "Usuarios", usuarios_path, :class => "brand" %></li>
+              <li id="reportes-li"><%= link_to "Reportados", incidencias_path, :class => "brand" %></li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </div>
 <%= yield %>
 
 </body>

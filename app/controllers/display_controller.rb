@@ -1,7 +1,10 @@
 class DisplayController < ApplicationController
 
 	def index
-
+    @apodos = Apodo.all.length
+    @usuarios = Usuario.all.length
+    @apodados = ApodosUsuario.all
+    @quejas = @apodados.select {|item| item.status == "2"}.length
 	end
 
   def test_upload

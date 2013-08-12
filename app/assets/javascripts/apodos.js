@@ -1,3 +1,7 @@
+$(document).on("ready", function(){
+  $("#apodos-li").addClass("active")
+});
+
 function updateVisible(apodo, html) {
 	 $.ajax({
     beforeSend: function( xhr ) {

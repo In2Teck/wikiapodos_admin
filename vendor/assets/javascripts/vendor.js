@@ -11,7 +11,6 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require dropdown
-//= require jpanel
 //= require jquery-ck
 //= require jquery.avgrund
 //= require jquery.dropkick-1.0.0

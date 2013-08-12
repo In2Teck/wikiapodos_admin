@@ -1,12 +1,15 @@
+<% content_for :head_script do %>
+  <%= javascript_include_tag "display" %>
+<% end %>
+
 <section>
-	<h2>Administrador</h2>
+	<h2>Resumen</h2>
 	<article>
-		<div>Selecciona alguna de las siguientes opciones:</div>
-		<br/>
 		<ul>
-			<li> Resumen general </li>
-			<li> Reporte de usuarios </li>
-			<li> Reporte de apodos </li>
+			<li> Apodos creados: <%= @apodos %> </li>
+			<li> Usuarios: <%= @usuarios %> </li>
+			<li> Usuarios apodados: <%= @apodados.length %> </li>
+			<li> Reportes recibidos: <%= @quejas %> </li>
 		</ul>
 	</article>
 </section>
