@@ -1,0 +1,27 @@
+<% if admin_user_signed_in? %>
+
+<h2>Sign up</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+  <br/><br/>
+  <div><%= f.submit "Sign up" %></div>
+<% end %>
+
+<% else %>
+
+  <p>No tienes permisos para crear sesiones de usuarios nuevos.</p>
+  <p>Si ya tienes tu usuario y password, da click <%= link_to "aquí", :signin %>.</p>
+
+<% end %>
+
+<!-- <%= render "devise/shared/links" %> -->

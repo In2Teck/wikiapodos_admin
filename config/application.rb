@@ -56,7 +56,17 @@ module Wikiapodos
     # Enable the asset pipeline
     config.assets.enabled = true
 
+    config.assets.initialize_on_precompile = false
+
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+
+    config.to_prepare do
+      Devise::SessionsController.layout "admin"
+      Devise::RegistrationsController.layout proc{ |controller| admin_user_signed_in? ? "application"   : "admin" }
+      Devise::ConfirmationsController.layout "admin"
+      Devise::UnlocksController.layout "admin"            
+      Devise::PasswordsController.layout "admin"        
+    end
   end
 end

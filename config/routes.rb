@@ -1,4 +1,6 @@
 Wikiapodos::Application.routes.draw do
+  devise_for :admin_users
+
   resources :reportes
 
 
@@ -34,6 +36,11 @@ Wikiapodos::Application.routes.draw do
     match 'update_destacado'
     match 'get_usuarios'
   end 
+
+  devise_scope :admin_user do
+	  get 'logout', :to => "devise/sessions#destroy"
+	  get 'signin', :to => "devise/sessions#new"
+  end
 
   match 'test_upload' => 'display#test_upload'
   
