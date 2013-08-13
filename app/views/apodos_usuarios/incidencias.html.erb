@@ -7,9 +7,9 @@
 
      <table class="table table-striped table-bordered responsive">
       <tr>
-        <th>Usuario</th>
-        <th>Apodo</th>
-        <th>Fecha</th>
+        <th><%= sortable "usuarios.nombre", "Usuario" %></th>
+        <th><%= sortable "apodos.nombre", "Apodo" %></th>
+        <th><%= sortable "fecha_actualizacion", "Fecha" %></th>
       </tr>
 
     <% @apodos_usuarios.each do |apodos_usuario| %>

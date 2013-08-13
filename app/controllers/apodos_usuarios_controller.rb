@@ -82,12 +82,23 @@ class ApodosUsuariosController < ApplicationController
   end
 
   def incidencias
-    @apodos_usuarios = ApodosUsuario.where("status = 2").order("fecha_actualizacion DESC").includes(:apodo, :usuario_para)
+    @apodos_usuarios = ApodosUsuario.where("status = 2").includes(:apodo, :usuario_para).order("#{sort_column} #{sort_direction}").paginate(:page => params[:page])
+
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @apodos_usuarios }
     end
+  end
+
+  private
+
+  def sort_direction  
+    %w[ASC DESC].include?(params[:direction]) ?  params[:direction] : "DESC"  
+  end
+
+  def sort_column
+    params[:sort] || "fecha_actualizacion"
   end
 
 end
