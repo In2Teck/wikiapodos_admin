@@ -15,7 +15,7 @@ body {
 
 header {
 	margin: 0 auto;
-	height: 60px;
+	height: 90px;
 	text-align: center;
 }
 
@@ -37,6 +37,18 @@ section {
 	display: inline-block;
 	margin: 0 1em;
 	vertical-align: top;
+}
+
+.horizontal-middle {
+	display: inline-block;
+	margin: 0 1em;
+	vertical-align: middle;
+}
+
+.logo	{
+	/*background-image: url('t2omedia.png');*/
+	height: 60px;
+	width: 129px;
 }
 
 .notice {
