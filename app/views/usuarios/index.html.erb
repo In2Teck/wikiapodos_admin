@@ -21,7 +21,9 @@
             <%= image_tag "https://graph.facebook.com/#{usuario.facebook_id}/picture", :class => "usuario-thumb horizontal" %>
             <%= link_to usuario.nombre + ' ' + usuario.apellido, "http://facebook.com/#{usuario.facebook_id}", :target => "_blank", :class => "horizontal" %></td>
         <td><%= usuario.email %></td>
-        <td><%= usuario.es_fan %></td>
+        <td>
+            <% if usuario.es_fan == '1' %> Fan <% else %> Nuevo Fan <% end %>
+        </td>
         <td><%= usuario.apodos.length %>&nbsp;&nbsp;&nbsp;
             <% if usuario.attributes["apodos_creados"] > 0 %>
                 <%=link_to "Ver", "#", :onclick => "getApodosCreados(#{usuario.facebook_id})"%>
