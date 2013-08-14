@@ -10,7 +10,7 @@
 </head>
 <body>
 	<header>
-		<img class="logo horizontal-middle" src="../assets/t2omedia.png"/>
+    <%= image_tag "t2omedia.png", :class => "logo horizontal-middle" %>
 		<h1 class="horizontal-middle">Wikiapodos</h1>
 	</header>
 	<div class="navbar">
@@ -24,6 +24,7 @@
               <li id="apodos-li"><%= link_to "Apodos", apodos_path, :class => "brand" %></li>
               <li id="usuarios-li"><%= link_to "Usuarios", usuarios_path, :class => "brand" %></li>
               <li id="reportes-li"><%= link_to "Reportados", incidencias_path, :class => "brand" %></li>
+              <li><%= link_to "Salir", "/logout", :class=>"brand" %></li>
             </ul>
           </nav>
         </div>
