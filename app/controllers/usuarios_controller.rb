@@ -2,7 +2,7 @@ class UsuariosController < ApplicationController
   # GET /usuarios
   # GET /usuarios.json
   def index
-    @usuarios = Usuario.find_by_sql("SELECT usuarios.id, usuarios.facebook_id, usuarios.es_fan, usuarios.nombre, usuarios.apellido, usuarios.email, count(distinct usuarios_desde.id) as 'amigos_apodados', count(distinct usuarios_para.id) as 'apodos_recibidos', count(distinct apodos.id) as 'apodos_creados'
+    @usuarios = Usuario.find_by_sql("SELECT usuarios.id, usuarios.facebook_id, usuarios.es_fan, usuarios.nombre, usuarios.apellido, usuarios.email, usuarios.fecha_creacion, count(distinct usuarios_desde.id) as 'amigos_apodados', count(distinct usuarios_para.id) as 'apodos_recibidos', count(distinct apodos.id) as 'apodos_creados'
 FROM usuarios LEFT OUTER JOIN apodos_usuarios as usuarios_para ON usuarios.facebook_id = usuarios_para.usuario_para_id AND usuarios_para.status = '1' LEFT OUTER JOIN apodos_usuarios as usuarios_desde ON usuarios.facebook_id = usuarios_desde.usuario_desde_id AND usuarios_desde.status = '1' LEFT OUTER JOIN apodos ON usuarios.facebook_id = apodos.autor_id GROUP BY usuarios.facebook_id ORDER BY #{sort_column} #{sort_direction}").paginate(:page => params[:page])
 
     respond_to do |format|
