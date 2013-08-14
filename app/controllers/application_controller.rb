@@ -11,11 +11,11 @@ class ApplicationController < ActionController::Base
   private
 
   def sort_direction  
-    %w[ASC DESC].include?(params[:direction]) ?  params[:direction] : "ASC"  
-  end 
+    %w[ASC DESC].include?(params[:direction]) ?  params[:direction] : "DESC"  
+  end
 
   def sort_column
-    params[:sort] || "id"
+    params[:sort] || "fecha_creacion"
   end
   
 end
