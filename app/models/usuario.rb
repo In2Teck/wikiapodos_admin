@@ -6,4 +6,7 @@ has_many :calificaciones, :primary_key => :facebook_id
 has_many :apodos, :primary_key => :facebook_id, :foreign_key => :autor_id
 has_many :compartidos, :primary_key => :facebook_id
   attr_accessible :apellido, :email, :es_fan, :facebook_id, :fecha_actualizacion, :fecha_creacion, :nombre
+
+  self.created_timestamp = :fecha_creacion
+  self.updated_timestamp = :fecha_actualizacion
 end

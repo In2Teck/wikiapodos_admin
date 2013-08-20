@@ -5,4 +5,7 @@ has_many :compartidos
 has_many :apodos_usuarios
 has_many :calificaciones
   attr_accessible :autor_id, :calificacion, :descripcion, :destacado, :fecha_actualizacion, :fecha_creacion, :imagen_url, :nombre, :prefijo, :visible
+
+  self.created_timestamp = :fecha_creacion
+  self.updated_timestamp = :fecha_actualizacion
 end
