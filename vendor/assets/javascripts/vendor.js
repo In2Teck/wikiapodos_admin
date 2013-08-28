@@ -11,7 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require dropdown
-//= require jquery-ck
+//= require jpanel
 //= require jquery.avgrund
 //= require jquery.dropkick-1.0.0
 //= require jquery.icheck
@@ -20,9 +20,6 @@
 //= require jquery.toolbar
 //= require legacy.js
 //= require manifest.js
-//= require picker.date
-//= require picker.js
-//= require picker.time
 //= require rainbow-custom.min
 //= require responsive-tables
 //= require responsiveslides

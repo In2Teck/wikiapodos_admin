@@ -47,3 +47,13 @@ function updateDestacado(apodo, html) {
     } 
   });
 }
+
+function filterResults(column, direction) {
+  //console.log(column + ' ' + direction + ' ' + $("#filter")[0].value);
+  top.location = "/apodos?sort=" + column + "&direction=" + direction + "&filter=" + $("#filter")[0].value
+}
+
+function clearFilter() {
+  $("#filter")[0].value = "";
+  top.location = "/apodos?";
+}

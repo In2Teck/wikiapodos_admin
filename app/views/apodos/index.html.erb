@@ -3,19 +3,27 @@
 <% end %>
 <section>
     <h2>Reporte de Apodos</h2>
+    <%= form_tag('/apodos', method: :get, :class => "inline-form" ) do %>
+        <%= text_field_tag "filter", @filter %>
+        <%= submit_tag "Buscar", :class => "btn btn-primary" %>
+        <%= submit_tag "Mostrar todos", :class => "btn btn-danger", :onclick => "clearFilter()" %>
+    <% end %>
+    <% if @filter != nil && @filter != ""%>
+        <%= label_tag("Resultados de '#{@filter}'") %>
+    <% end %>
     <%= will_paginate @apodos, :previous_label => ApplicationHelper::PREV_LBL, :next_label => ApplicationHelper::NEXT_LBL %>
     <table class="table table-striped table-bordered responsive">
       <tr>
-        <th><%= sortable "nombre", "Apodo" %></th>
-        <th><%= sortable "descripcion", "Descripción" %></th>
-        <th><%= sortable "nombre_usuario", "Autor" %></th>
-        <th><%= sortable "calificacion", "Calificación" %></th>
-        <th><%= sortable "aceptado", "Usuarios" %></th>
-        <th><%= sortable "compartido", "Compartido" %></th>
-        <th><%= sortable "reportado", "Reportado" %></th>
-        <th><%= sortable "visible" %></th>
-        <th><%= sortable "destacado" %></th>
-        <th><%= sortable "fecha_actualizacion", "Fecha" %></th>
+        <th><%= sortable "nombre", "Apodo", true %></th>
+        <th><%= sortable "descripcion", "Descripción", true %></th>
+        <th><%= sortable "nombre_usuario", "Autor", true %></th>
+        <th><%= sortable "calificacion", "Calificación", true %></th>
+        <th><%= sortable "aceptado", "Usuarios", true %></th>
+        <th><%= sortable "compartido", "Compartido", true %></th>
+        <th><%= sortable "reportado", "Reportado", true %></th>
+        <th><%= sortable "visible", nil, true %></th>
+        <th><%= sortable "destacado", nil, true %></th>
+        <th><%= sortable "fecha_actualizacion", "Fecha", true %></th>
         <th></th>
       </tr>
 
