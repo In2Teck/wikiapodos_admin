@@ -117,7 +117,7 @@
      @usuarios = ApodosUsuario.where("apodo_id = ? and status = 1", params[:apodo_id]).includes(:usuario_para)
 
     respond_to do |format|
-      format.json { render json: @usuarios }
+      format.json { render json: @usuarios, :include => :usuario_para}
     end
   end
 

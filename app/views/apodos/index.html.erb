@@ -37,7 +37,11 @@
         <td class="justificado"><%= apodo.descripcion %></td>
         <td class="centered"><%= link_to apodo.attributes["nombre_usuario"] + ' ' + apodo.attributes["apellido"], "http://facebook.com/#{apodo.attributes["facebook_id"]}", :target => "_blank" %></td>
         <td class="centered"><%= apodo.calificacion %></td>
-        <td class="centered"><%= apodo.aceptado.to_i %></td>
+        <td class="centered"><%= apodo.aceptado.to_i %> &nbsp;&nbsp;
+            <% if apodo.aceptado.to_i > 0 %>
+                <%=link_to "Ver", "#", :onclick => "getUsuarios(#{apodo.id})"%>
+            <% end %>
+        </td>
         <td class="centered"><%= apodo.compartido %></td>
         <td class="centered"><%= apodo.reportado.to_i %></td>
         <td class="centered">
@@ -59,4 +63,10 @@
       </tr>
     <% end %>
     </table>
+
+    <div id="myModal" class="hide">
+        <h2>Usuarios</h2>
+        <table id="usuariosApodo" class="table table-striped table-bordered responsive"></table>
+        </div>
+    </div>
 </section>

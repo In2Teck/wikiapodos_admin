@@ -91,7 +91,7 @@ FROM usuarios LEFT OUTER JOIN apodos_usuarios as usuarios_para ON usuarios.faceb
 
   def get_apodos_asignados
     @apodos = ApodosUsuario.where("usuario_para_id = ? and status = 1", params[:usuario_id]).includes(:apodo)
-     respond_to do |format|
+    respond_to do |format|
       format.json { render json: @apodos, :include => :apodo }
     end
   end
