@@ -1,5 +1,3 @@
-var selectedApodos = [];
-
 $(document).on("ready", function(){
   $("#usuarios-li").addClass("active")
 });
@@ -58,4 +56,23 @@ function showModal(apodos) {
 
   }
   $("#myModal").modal({maxWidth:300, minHeight:450});
+}
+
+function updateGanador(usuarioId, td) {
+  $.ajax({
+    beforeSend: function( xhr ) {
+      var token = $('meta[name="csrf-token"]').attr('content');
+      if (token) xhr.setRequestHeader('X-CSRF-Token', token);
+    }, 
+    type: "POST",
+    url: "/usuarios/" + usuarioId + "/update_ganador",
+    dataType: "json",
+    success: function(data, textStatus, jqXHR) {
+      if (data.es_ganador == 1) {
+        $(td).parent().html("Sí")
+      }
+    },
+    error: function() {
+    } 
+  });
 }

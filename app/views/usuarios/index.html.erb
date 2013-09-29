@@ -13,6 +13,8 @@
         <th><%= sortable "apodos_creados", "Apodos Creados"%></th>
         <th><%= sortable "apodos_recibidos", "Apodos Recibidos"%></th>
         <th><%= sortable "amigos_apodados", "Amigos Apodados"%></th>
+        <th><%= sortable "encontro_apodos", "Encontró Apodos"%></th>
+        <th><%= sortable "es_ganador", "Ganador"%></th>
       </tr>
 
     <% @usuarios.select{|user| user.facebook_id != '1'}.each do |usuario| %>
@@ -35,6 +37,14 @@
             <% end %>
         </td>
         <td><%= usuario.attributes["amigos_apodados"] %></td>
+        <td> <% if usuario.encontro_apodos == 1 %> Sí <% else %> No <% end %>
+        <td class="centered">
+            <% if usuario.es_ganador == 1 %>
+                Sí
+            <% elsif usuario.encontro_apodos == 1 %>
+                <%=link_to"Marcar ganador", "#", :onclick => "updateGanador(#{usuario.facebook_id}, this)" %>
+            <% end %>
+        </td>
       </tr>
     <% end %>
     </table>

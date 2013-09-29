@@ -19,6 +19,7 @@ Wikiapodos::Application.routes.draw do
   resources :usuarios do
     match 'get_apodos_creados'
     match 'get_apodos_asignados'
+    match 'update_ganador'
   end
 
 
@@ -35,6 +36,7 @@ Wikiapodos::Application.routes.draw do
     match 'update_visible'
     match 'update_destacado'
     match 'get_usuarios'
+    match 'update_estrella'
   end 
 
   devise_scope :admin_user do
@@ -47,6 +49,10 @@ Wikiapodos::Application.routes.draw do
   match 'test_upload_send' => 'display#test_upload_send'
 
   match 'incidencias' => 'apodos_usuarios#incidencias'
+
+  match 'remind_usuarios' => 'display#remind_usuarios'  
+
+  match 'clear_contest' => 'display#clear_contest'  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

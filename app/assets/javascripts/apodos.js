@@ -1,7 +1,7 @@
 $(document).on("ready", function(){
   $("#apodos-li").addClass("active")
 });
-var diego;
+
 function getUsuarios(apodoId) {
     $.ajax({
     beforeSend: function( xhr ) {
@@ -12,7 +12,6 @@ function getUsuarios(apodoId) {
     url: "/apodos/" + apodoId + "/get_usuarios",
     dataType: "json",
     success: function(data, textStatus, jqXHR) {
-      diego = data;
       var usuarios = [];
       for (var index = 0; index < data.length; index++) {
         if (data[index].usuario_para)
@@ -55,7 +54,6 @@ function updateVisible(apodo, html) {
     url: "/apodos/" + apodo + "/update_visible",
     dataType: "json",
     success: function(data, textStatus, jqXHR) {
-      var label;      
       if (data.visible) {
       	$(html).text("Ocultar");
       }
@@ -78,12 +76,33 @@ function updateDestacado(apodo, html) {
     url: "/apodos/" + apodo + "/update_destacado",
     dataType: "json",
     success: function(data, textStatus, jqXHR) {
-      var label;
       if (data.destacado) {
       	$(html).text("Remover");
       }
       else {
       	$(html).text("Agregar");
+      }
+    },
+    error: function() {
+    } 
+  });
+}
+
+function updateEstrella(apodo, html) {
+   $.ajax({
+    beforeSend: function( xhr ) {
+      var token = $('meta[name="csrf-token"]').attr('content');
+      if (token) xhr.setRequestHeader('X-CSRF-Token', token);
+    }, 
+    type: "POST",
+    url: "/apodos/" + apodo + "/update_estrella",
+    dataType: "json",
+    success: function(data, textStatus, jqXHR) {
+      if (data.es_estrella == 1) {
+        $(html).text("Remover");
+      }
+      else {
+        $(html).text("Agregar");
       }
     },
     error: function() {

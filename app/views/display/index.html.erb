@@ -11,5 +11,15 @@
 			<li> Usuarios apodados: <%= @apodados.length %> </li>
 			<li> Reportes recibidos: <%= @quejas %> </li>
 		</ul>
+		<br/>
+		<div>
+			<%= submit_tag "Reiniciar Concurso", :class => "btn btn-success horizontal-middle", :onclick => "clearContest()"%>
+			<div id="contest-reset" class="horizontal-middle"></div>
+		</div>
+		<br/>
+		<div>
+			<%= submit_tag "Enviar Notificaciones", :class => "btn btn-danger horizontal-middle", :onclick => "remindUsers()" %>
+			<div id="notification-sent" class="horizontal-middle"></div>
+		</div>
 	</article>
 </section>

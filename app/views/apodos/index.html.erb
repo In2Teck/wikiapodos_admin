@@ -23,6 +23,7 @@
         <th><%= sortable "reportado", "Reportado", true %></th>
         <th><%= sortable "visible", nil, true %></th>
         <th><%= sortable "destacado", nil, true %></th>
+        <th><%= sortable "es_estrella", 'Estrella', true %></th>
         <th><%= sortable "fecha_actualizacion", "Fecha", true %></th>
         <th></th>
       </tr>
@@ -51,11 +52,18 @@
                 <%=link_to"Mostrar", "#", :onclick => "updateVisible(#{apodo.id}, this)" %>
             <% end %>
         </td>
-         <td class="centered">
+        <td class="centered">
             <% if apodo.destacado %>
                 <%=link_to"Remover", "#", :onclick => "updateDestacado(#{apodo.id}, this)" %>
             <% else %>
                 <%=link_to"Agregar", "#", :onclick => "updateDestacado(#{apodo.id}, this)" %>
+            <% end %>
+        </td>
+        <td class="centered">
+            <% if apodo.es_estrella == 1 %>
+                <%=link_to"Remover", "#", :onclick => "updateEstrella(#{apodo.id}, this)" %>
+            <% else %>
+                <%=link_to"Agregar", "#", :onclick => "updateEstrella(#{apodo.id}, this)" %>
             <% end %>
         </td>
         <td class="centered"><%= apodo.fecha_creacion.in_time_zone("Mexico City").strftime("%h %d %Y") %></td>

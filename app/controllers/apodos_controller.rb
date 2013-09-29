@@ -113,11 +113,24 @@
     end
   end
 
-   def get_usuarios
+  def get_usuarios
      @usuarios = ApodosUsuario.where("apodo_id = ? and status = 1", params[:apodo_id]).includes(:usuario_para)
 
     respond_to do |format|
       format.json { render json: @usuarios, :include => :usuario_para}
+    end
+  end
+
+  def update_estrella
+    @apodo = Apodo.find(params[:apodo_id])
+    newVal = @apodo.es_estrella == 0 ? 1 : 0
+
+    respond_to do |format|
+      if @apodo.update_attribute(:es_estrella, newVal)
+        format.json { render json: @apodo }
+      else
+        format.json { render json: {:error => "error"}}
+      end
     end
   end
 
